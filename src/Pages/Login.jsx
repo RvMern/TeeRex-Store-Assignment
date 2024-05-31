@@ -56,16 +56,17 @@ const Login = () => {
   });
 
   useEffect(() => {
+    console.log(mutation.data);
     if (mutation.isSuccess) {
       const checkIsError = Object.keys(mutation.data).includes("isError");
       if (checkIsError) {
-        dispatch(getUserErrorAction(mutation.data));
+        return dispatch(getUserErrorAction(mutation.data));
       } else {
-        dispatch(loginAction(mutation.data));
+        return dispatch(loginAction(mutation.data));
       }
     }
     if (mutation.isError) {
-      dispatch(getUserErrorAction(mutation.error));
+      return dispatch(getUserErrorAction(mutation.error));
     }
   }, [
     mutation.isSuccess,
