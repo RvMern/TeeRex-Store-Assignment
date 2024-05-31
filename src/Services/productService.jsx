@@ -3,7 +3,7 @@ import axios from "axios";
 const getAllProductsService = async (queryParams) => {
   try {
     const response = await axios.post(
-      "http://127.0.0.1:5000/api/v1/product/allproducts",
+      "https://teerex-store-assignment-backend.onrender.com/api/v1/product/allproducts",
       queryParams,
       {
         headers: {

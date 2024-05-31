@@ -3,7 +3,7 @@ import axios from "axios";
 const loginUserService = async (userData) => {
   try {
     const response = await axios.post(
-      "http://127.0.0.1:5000/api/v1/user/login",
+      "https://teerex-store-assignment-backend.onrender.com//api/v1/user/login",
       userData,
       {
         headers: {
@@ -20,7 +20,7 @@ const loginUserService = async (userData) => {
 const registerUserService = async (userData) => {
   try {
     const response = await axios.post(
-      "http://127.0.0.1:5000/api/v1/user/register",
+      "https://teerex-store-assignment-backend.onrender.com/api/v1/user/register",
       userData,
       {
         headers: {
@@ -38,7 +38,7 @@ const registerUserService = async (userData) => {
 const addToCartService = async (productData) => {
   try {
     const response = await axios.post(
-      "http://127.0.0.1:5000/api/v1/user/addproducttocart",
+      "https://teerex-store-assignment-backend.onrender.com/api/v1/user/addproducttocart",
       productData,
       {
         headers: {
@@ -56,7 +56,7 @@ const addToCartService = async (productData) => {
 const deleteFromCartService = async (orderId) => {
   try {
     const response = await axios.delete(
-      "http://127.0.0.1:5000/api/v1/user/deleteproductfromcart",{
+      "https://teerex-store-assignment-backend.onrender.com/deleteproductfromcart",{
         data:{orderId},
         headers: {
           "Content-Type": "application/json",
@@ -73,7 +73,7 @@ const deleteFromCartService = async (orderId) => {
 const UpdateQuantityService = async (quantityData) => {
   try {
     const response = await axios.put(
-      "http://127.0.0.1:5000/api/v1/user/updatequantityincart",quantityData,{
+      "https://teerex-store-assignment-backend.onrender.com/api/v1/user/updatequantityincart",quantityData,{
         headers: {
           "Content-Type": "application/json",
           "Authorization": JSON.parse(window.localStorage.getItem('token'))
