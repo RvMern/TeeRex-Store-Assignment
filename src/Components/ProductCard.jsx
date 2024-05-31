@@ -13,14 +13,11 @@ import React, { useEffect, useState } from "react";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCartAction, getUserErrorAction } from "../Redux/userSlice";
-import CloseIcon from "@mui/icons-material/Close";
 import { useNavigate } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
 import { addToCartService } from "../Services/userService";
 
 const ProductCard = () => {
-  const [openSnackbar, setOpenSnackbar] = useState(false); // State to manage Snackbar visibility
-  const [inCart, setInCart] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { allProducts } = useSelector((state) => state?.product);
@@ -48,13 +45,6 @@ const ProductCard = () => {
     }
   };
 
-  const handleClose = (event, reason) => {
-    if (reason === "clickaway") {
-      return;
-    }
-    // Close Snackbar when user clicks close button
-    setOpenSnackbar(false);
-  };
 
   useEffect(() => {
     if (mutation.isError) {
@@ -102,10 +92,10 @@ const ProductCard = () => {
                   }}
                 />
                 <CardContent
-                  sx={{ p: 0, pt: 2 }}
-                  className="flex flex-wrap justify-between"
+                  sx={{p:0, pt: 2 }}
+                  className="flex items-center flex-wrap justify-between"
                 >
-                  <Box> 
+                  <Box > 
                     <Typography variant="h6" fontWeight={900}>
                       {item?.name}
                     </Typography>
@@ -135,25 +125,6 @@ const ProductCard = () => {
               </Card>
             </Box>
           </Box>
-          {mutation.data && mutation.data.success && (
-            <Snackbar
-              anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-              open={openSnackbar}
-              autoHideDuration={5000}
-              onClose={handleClose}
-              message={mutation.data.message}
-              action={
-                <IconButton
-                  size="small"
-                  aria-label="close"
-                  color="inherit"
-                  onClick={handleClose}
-                >
-                  <CloseIcon fontSize="small" />
-                </IconButton>
-              }
-            />
-          )}
         </Grid>
       );
     })

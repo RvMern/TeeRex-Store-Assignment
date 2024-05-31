@@ -49,7 +49,7 @@ const HomePage = () => {
     <Box component={'section'} className=''>
         <SearchCard />
         <Box sx={{position:'relative'}} className='flex flex-col justify-center items-center mt-10 relative
-        xl:flex-row xl:items-start gap-x-10 lg:p-12'>
+        xl:flex-row xl:items-start gap-x-5 lg:p-8'>
           <FilterCard />
           <Grid sx={{width:'90%'}} container className='justify-center xl:justify-normal items-start' component='main'>
           {mutation.isSuccess && mutation.data && mutation.data?.allProducts?.length > 0 ? <ProductCard /> :
