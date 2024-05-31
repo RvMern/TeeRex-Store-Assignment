@@ -8,7 +8,8 @@ const loginUserService = async (userData) => {
       {
         headers: {
           "Content-Type": "application/json",
-        }
+        },
+        withCredentials:true
       }
     );
     return response.data;
@@ -25,8 +26,9 @@ const registerUserService = async (userData) => {
       {
         headers: {
           "Content-Type": "application/json",
-        }
-      }
+        },
+        withCredentials:true
+      },
     );
     return response.data;
   } catch (err) {
@@ -45,6 +47,7 @@ const addToCartService = async (productData) => {
           "Content-Type": "application/json",
           "Authorization": JSON.parse(window.localStorage.getItem('token'))
         },
+        withCredentials:true
       }
     );
     return response.data;
@@ -61,7 +64,8 @@ const deleteFromCartService = async (orderId) => {
         headers: {
           "Content-Type": "application/json",
           "Authorization": JSON.parse(window.localStorage.getItem('token'))
-        }
+        },
+        withCredentials:true
       }
     );
     return response.data;
@@ -77,7 +81,8 @@ const UpdateQuantityService = async (quantityData) => {
         headers: {
           "Content-Type": "application/json",
           "Authorization": JSON.parse(window.localStorage.getItem('token'))
-        }
+        },
+        withCredentials:true
       }
     );
     return response.data;
