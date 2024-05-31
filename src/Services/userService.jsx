@@ -3,7 +3,7 @@ import axios from "axios";
 const loginUserService = async (userData) => {
   try {
     const response = await axios.post(
-      "https://teerex-store-assignment-backend.onrender.com//api/v1/user/login",
+      "https://teerex-store-assignment-backend.onrender.com/api/v1/user/login",
       userData,
       {
         headers: {
@@ -59,7 +59,7 @@ const addToCartService = async (productData) => {
 const deleteFromCartService = async (orderId) => {
   try {
     const response = await axios.delete(
-      "https://teerex-store-assignment-backend.onrender.com/deleteproductfromcart",{
+      "https://teerex-store-assignment-backend.onrender.com/api/v1/user/deleteproductfromcart",{
         data:{orderId},
         headers: {
           "Content-Type": "application/json",
